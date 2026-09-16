@@ -1,0 +1,20 @@
+[
+  {
+    "id": "g001",
+    "query": "In the context of the MM LU exam, how did the researchers increase the difficulty of the exam by changing the number of options in MCQs from 4 to 10, specifically by making it harder to eliminate incorrect options?",
+    "ideal_answer": "Researchers increased the difficulty by changing MCQs from 4 to 10 options. With 4 options, eliminating 3 incorrect ones to reach the right answer is relatively easy. With 10 options, the elimination process becomes much harder, thereby increasing the exam's complexity.",
+    "source": "TODO-verify"
+  },
+  {
+    "id": "g002",
+    "query": "Will the 8-10 hours of content recorded by Rupinder, which covers the evolution of the field and benchmarks, be available on YouTube, or is it exclusive to the dashboard?",
+    "ideal_answer": "The 8-10 hours of content recorded by Rupinder is exclusive to the dashboard and will not be available on YouTube.",
+    "source": "TODO-verify"
+  },
+  {
+    "id": "g003",
+    "query": "Why should AI engineers be cautious about trusting benchmark numbers given by frontier labs if the labs conducted the evaluations themselves in controlled settings?",
+    "ideal_answer": "AI engineers should be cautious because frontier labs create favorable conditions to maximize scores, similar to a car's advertised mileage being a higher limit. They also cherry-pick results, highlighting good scores while downplaying poor performance, making the published numbers less representative of real-world effectiveness.",
+    "source": "TODO-verify"
+  }
+]
