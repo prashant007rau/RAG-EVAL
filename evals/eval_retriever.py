@@ -1,5 +1,6 @@
 import os
 import json
+from pathlib import Path
 
 from dotenv import load_dotenv
 
@@ -14,7 +15,8 @@ from src.retriever import build_retriever
 
 load_dotenv()
 
-GOLDEN_PATH = "golden/retriever_deepeval_goldens.json"
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+GOLDEN_PATH = PROJECT_ROOT / "golden" / "retriever_deepeval_goldens.json"
 JUDGE_MODEL = os.getenv("GROQ_MODEL", "qwen/qwen3.8-27b")
 THRESHOLD = 0.7
 
@@ -28,20 +30,18 @@ class GroqDeepEvalLLM(DeepEvalBaseLLM):
         return ChatGroq(model=self.model_name, temperature=0, max_retries=5)
 
     def generate(self, prompt, schema=None, **kwargs):
-        model = self.model.with_structured_output(schema) if schema else self.model
-        response = model.invoke(prompt, **kwargs)
+        response = self.model.invoke(prompt, **kwargs)
         return response.content if hasattr(response, "content") else response
 
     async def a_generate(self, prompt, schema=None, **kwargs):
-        model = self.model.with_structured_output(schema) if schema else self.model
-        response = await model.ainvoke(prompt, **kwargs)
+        response = await self.model.ainvoke(prompt, **kwargs)
         return response.content if hasattr(response, "content") else response
 
     def get_model_name(self):
         return self.model_name
 
     def supports_structured_outputs(self):
-        return True
+        return False
 
 
 def run():
